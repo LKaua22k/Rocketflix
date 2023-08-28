@@ -29,10 +29,9 @@ body{
 
 #app {
     max-width: 62rem;
-    margin: 0 auto;
+    margin: 5rem auto;
     text-align: center;
-    margin-top: 5rem;
-    
+    color: var(--title-color);
 }
 
 header {
@@ -51,7 +50,6 @@ header svg{
 header h1 {
     font-size: 4rem;
     font-weight: bold;
-    color: var(--title-color);
     line-height: 4rem;
 }
 
@@ -69,4 +67,46 @@ main section .poster_wrapper{
     gap: 2rem;
 }
 
+main section .tile_film{
+    font-size: 2rem;
+    font-weight: bold;
+}
 
+main section .descrption_filme{
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    width: 31.6rem;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2.8rem;
+}
+
+footer button{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 1.1rem;
+    gap: 1.6rem;
+    font-weight: bold;
+    border: none;
+    border-radius: .5rem;
+    transition: .5s;
+    cursor: pointer;
+}
+
+footer button:hover{
+    transition: .5s;
+    filter: brightness(0.9);
+}
+
+footer p{
+    font-size: 1.2rem;
+    font-weight: 400;
+    
+}
