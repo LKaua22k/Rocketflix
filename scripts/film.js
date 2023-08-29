@@ -1,27 +1,29 @@
-export class filmId {
+// export class filmId {
 
-    film(){
-      const id = Math.floor(Math.random() * 1000) + 1
-  
-      const url = `${BASE_URL}${id}?${API_KEY}&${language}`
+//     film(){  
+//       const url = `${BASE_URL}${id}?${API_KEY}&${language}`
     
-      return fetch(url).then(data => data.json).then(({title,poster_path,overview}) => ({
-        title,
-        poster_path,
-        overview
-      }))
+//       return fetch(url).then(data => data.json).then(({title,poster_path,overview}) => ({
+//         title,
+//         poster_path,
+//         overview
+//       }))
   
-    }
+//     }
   
-  }
+//   }
   
 export class Film {
     constructor(root){
         this.root = document.querySelector(root) 
-    
+        this.onadd()
     }
     
+    add(id){
 
+        console.log(id)
+        
+    }   
 }
 
 export class FilmView extends Film{
@@ -54,6 +56,15 @@ export class FilmView extends Film{
     </section>`
     }
 
+
+    onadd(){
+        const randomBtn = this.root.querySelector('footer button')
+        randomBtn.addEventListener('click',() => {
+            const id = Math.floor(Math.random() * 1000) + 1      
+
+            this.add(id)
+        })
+    }
 
     removeallSec(){
         this.main.querySelectorAll('section').forEach(section => {
