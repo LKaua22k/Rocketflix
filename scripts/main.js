@@ -4,9 +4,11 @@ import {
     language,
   } from './api.js'
 
-import { FilmView } from './film.js'
+  import { FilmView } from './film.js'
 
-new FilmView('#app')
+
+  new FilmView('#app')
+
 
 
 

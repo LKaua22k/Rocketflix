@@ -1,28 +1,20 @@
-// export class filmId {
-
-//     film(){  
-//       const url = `${BASE_URL}${id}?${API_KEY}&${language}`
-    
-//       return fetch(url).then(data => data.json).then(({title,poster_path,overview}) => ({
-//         title,
-//         poster_path,
-//         overview
-//       }))
-  
-//     }
-  
-//   }
+import {
+    API_KEY, BASE_URL,
+    IMG_URL,
+    language,
+  } from './api.js'
   
 export class Film {
     constructor(root){
         this.root = document.querySelector(root) 
-        this.onadd()
+        this.raddom()
     }
     
-    add(id){
+    CreatedUrl(id){
 
-        console.log(id)
-        
+       const url = `${BASE_URL}${id}?${API_KEY}&${language}`
+    
+        this.update(url)
     }   
 }
 
@@ -36,39 +28,32 @@ export class FilmView extends Film{
     }
 
 
-    update(){
-        this.removeallSec()
+    update(url){
+        const movie = document.querySelector('.movie')
 
+        fetch(url).then(data => data.json()).then(data => {
+
+            movie.innerHTML = `
+                <div class="poster_wrapper">
+                    <img class="poster_film" src="${data.poster_path ? IMG_URL + data.poster_path : './imgs/Poster.png'}" alt="Poster do ${data.title ? data.title : 'Bora codar'}">
+                    
+                    <span class="tile_film">${data.title ? data.title : ''}</span>  
+                </div>
+        
+                <p class="descrption_filme">${data.overview ? data.overview : 'Ops, hoje não é dia de assistir filme. Bora codar! 🚀'}</p>
+            </section>`
+        })
 
     }
 
-    createdSection(){
-        const section = document.createdElement('section')
-
-        section.innerHTML = `
-        <div class="poster_wrapper">
-            <img class="poster_film" src="./Poster.png" alt="Poster do Os Caça-Fantasmas">
-            
-            <span class="tile_film">Os Caça-Fantasmas</span>  
-        </div>
-
-        <p class="descrption_filme">Em Nova York Peter Venkman, Ray Stantz e Egon Spengler são três cientistas do departamento de psicologia da Columbia University, que se dedicam ao estudo de casos paranormais. Quando a subvenção termina eles são despedidos e Venkman sugere que abram um negócio próprio, a exterminadora de fantasmas Ghostbusters. Inicialmente eles só têm despesas e nenhum cliente, mas eis que surge Dana Barrett, uma violoncelista que teve uma experiência assustadora em seu apartamento.</p>
-    </section>`
-    }
-
-
-    onadd(){
+    raddom(){
         const randomBtn = this.root.querySelector('footer button')
         randomBtn.addEventListener('click',() => {
             const id = Math.floor(Math.random() * 1000) + 1      
 
-            this.add(id)
+            this.CreatedUrl(id)
         })
     }
 
-    removeallSec(){
-        this.main.querySelectorAll('section').forEach(section => {
-         section.remove()   
-        });
-    }
+
 }
