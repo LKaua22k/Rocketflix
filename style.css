@@ -29,7 +29,7 @@ body{
 
 #app {
     max-width: 62rem;
-    margin: 5rem auto;
+    margin: 0rem auto;
     text-align: center;
     color: var(--title-color);
 }
@@ -40,6 +40,7 @@ header {
     flex-direction: column;
     gap: 2rem;
     align-items: center;
+    margin-top: 12.6rem;
 }
 
 header svg{
@@ -61,10 +62,17 @@ main section {
     justify-content: center;
 }
 
+main section .poster_film{
+    margin-bottom: 2rem;
+    width: 17.1rem;
+}
+
 main section .poster_wrapper{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 
 main section .tile_film{
@@ -110,3 +118,30 @@ footer p{
     font-weight: 400;
     
 }
+
+@media (min-width: 500px) {
+    body{
+        height: 100vh;
+    }
+
+    main section{
+        flex-direction: row;
+        gap: 3.4rem;
+    }
+
+    main section .poster_wrapper{
+        text-align: left;
+    }
+
+    main section .tile_film{
+        text-align: left;
+        width: 42.3rem;
+    }
+
+    main section .descrption_filme{
+        width: 42.3rem;
+    }
+
+    
+}
+

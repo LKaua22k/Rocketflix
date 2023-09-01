@@ -34,13 +34,12 @@ export class FilmView extends Film{
         fetch(url).then(data => data.json()).then(data => {
 
             movie.innerHTML = `
+                    <img class="poster_film" src="${data.poster_path ? IMG_URL + data.poster_path : './imgs/Poster.png'}" alt="Poster do ${data.title ? data.title : 'Bora codar'}">                    
+
                 <div class="poster_wrapper">
-                    <img class="poster_film" src="${data.poster_path ? IMG_URL + data.poster_path : './imgs/Poster.png'}" alt="Poster do ${data.title ? data.title : 'Bora codar'}">
-                    
                     <span class="tile_film">${data.title ? data.title : ''}</span>  
+                    <p class="descrption_filme">${data.overview ? data.overview : 'Ops, hoje não é dia de assistir filme. Bora codar! 🚀'}</p>
                 </div>
-        
-                <p class="descrption_filme">${data.overview ? data.overview : 'Ops, hoje não é dia de assistir filme. Bora codar! 🚀'}</p>
             </section>`
         })
 
